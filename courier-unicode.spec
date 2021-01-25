@@ -1,6 +1,6 @@
 Summary:             A library implementing algorithms related to the Unicode Standard
 Name:                courier-unicode
-Version:             2.0
+Version:             2.1
 Release:             1
 License:             GPLv3
 URL:                 https://sourceforge.net/projects/courier/files/courier-unicode
@@ -47,7 +47,7 @@ rm %{buildroot}%{_libdir}/*.la
 %license COPYING
 %doc README ChangeLog AUTHORS
 %{_libdir}/libcourier-unicode.so.4
-%{_libdir}/libcourier-unicode.so.4.0.0
+%{_libdir}/libcourier-unicode.so.4.1.0
 
 %files devel
 %{_includedir}/courier-unicode.h
@@ -59,5 +59,8 @@ rm %{buildroot}%{_libdir}/*.la
 %{_mandir}/man7/*
 
 %changelog
+* Mon Jan 25 2021 orange-snn <songnannan2@huawei.com> - 2.1-1
+- update to 2.1
+
 * Wed Oct 14 2020 chengzihan <chengzihan2@huawei.com> - 2.0-1
 - Package init
