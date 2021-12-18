@@ -1,6 +1,6 @@
 Summary:             A library implementing algorithms related to the Unicode Standard
 Name:                courier-unicode
-Version:             2.1
+Version:             2.2.3
 Release:             1
 License:             GPLv3
 URL:                 https://sourceforge.net/projects/courier/files/courier-unicode
@@ -8,6 +8,7 @@ Source0:             https://downloads.sourceforge.net/project/courier/%{name}/%
 Source1:             https://downloads.sourceforge.net/project/courier/%{name}/%{version}/%{name}-%{version}.tar.bz2.sig
 Source2:             pubkey.maildrop
 BuildRequires:       gcc-c++ gcc gnupg perl-interpreter
+BuildRequires:       courier-unicode
 %description
 This library implements several algorithms related to the Unicode Standard:
 * Look up uppercase, lowercase, and titlecase equivalents of a unicode character.
@@ -39,6 +40,7 @@ gpg --verify %{SOURCE1} %{SOURCE0}
 %install
 %makeinstall
 rm %{buildroot}%{_libdir}/*.la
+cp %{_libdir}/libcourier-unicode.so.4* %{buildroot}%{_libdir}/
 
 %check
 %{__make} check
@@ -46,8 +48,8 @@ rm %{buildroot}%{_libdir}/*.la
 %files
 %license COPYING
 %doc README ChangeLog AUTHORS
-%{_libdir}/libcourier-unicode.so.4
-%{_libdir}/libcourier-unicode.so.4.1.0
+%{_libdir}/libcourier-unicode.so.4*
+%{_libdir}/libcourier-unicode.so.7*
 
 %files devel
 %{_includedir}/courier-unicode.h
@@ -55,10 +57,14 @@ rm %{buildroot}%{_libdir}/*.la
 %{_includedir}/courier-unicode-script-tab.h
 %{_libdir}/libcourier-unicode.so
 %{_datadir}/aclocal/courier-unicode.m4
+%{_datadir}/aclocal/courier-unicode-version.m4
 %{_mandir}/man3/*
 %{_mandir}/man7/*
 
 %changelog
+* Sat Dec 18 2021 gaihuiying <gaihuiying1@huawei.com> - 2.2.3
+- update to 2.2.3
+
 * Mon Jan 25 2021 orange-snn <songnannan2@huawei.com> - 2.1-1
 - update to 2.1
 
